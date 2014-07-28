@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+printf "SPOOL gen/data/uploads/"$1.csv" REPLACE \n" >> gen/importscript.sql
+
+if [ $# -eq 2 ]
+then
+	cat $2 >> gen/importscript.sql
+else
+	printf "SELECT * FROM "$1" \n" >> gen/importscript.sql	
+	
+fi
+printf "SPOOL OFF \n" >> gen/importscript.sql
