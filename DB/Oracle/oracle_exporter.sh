@@ -17,8 +17,14 @@ then
 	pwd=$3
 	host=$4
 	service=$5
-	tablename=$6
-	scp hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads
+	tablename=$7
+	if [ $6 == "nolocal" ]
+		then
+			scp hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads
+			
+		else
+			cp /var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads
+	fi
 	#generate control file
 	sh $HPCC_ORA/./gen/getcolumns.sh $tablename
 	$sqlcmd $user/$pwd@$host/$service @$HPCC_ORA/gen/tmp/exportscript.sql
@@ -27,5 +33,5 @@ then
 	$ORACLE_HOME/bin/./sqlldr $user/$pwd@$host/$service control=$HPCC_ORA/gen/tmp/$tablename.ctl log=$HPCC_ORA/gen/logs/$tablename.log bad=$HPCC_ORA/gen/logs/$tablename.bad
 	
 else
-	echo "./oracle_exporter.sh filename username password hostname:port serviceid tablename"
+	echo "./oracle_exporter.sh filename username password hostname:port serviceid local/nolocal tablename"
 fi
