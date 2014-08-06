@@ -11,12 +11,18 @@ fi
 
 if [ $# -ge 5 ]
 then
-	user=$1
-	pass=$2
-	host=$3
-	service=$4
+	if [ -t 0 ]
+		then
+			user=$1
+			pass=$2
+			host=$3
+			service=$4
+			loc=$5
+		else
+			read user pass host service loc
+	fi
 
-	if [ $5 == "nolocal" ]
+	if [ $loc == "nolocal" ]
 		then
 			finalscp=1
 			spoolpath="$HPCC_ORA/gen/data/uploads/"
@@ -41,7 +47,7 @@ then
 	shift
 	done
 	printf 'EXIT' >> $HPCC_ORA/gen/tmp/importscript.sql
-	LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib:$LD_LIBRARY_PATH $sqlcmd $user/$pass@$host/$service @$HPCC_ORA/gen/tmp/importscript.sql
+	$sqlcmd $user/$pass@$host/$service @$HPCC_ORA/gen/tmp/importscript.sql
 	
 	if [ $finalscp -eq 1 ]
 		then

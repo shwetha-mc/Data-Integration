@@ -1,11 +1,11 @@
 
-SQL*Loader: Release 11.2.0.2.0 - Production on Mon Jul 28 14:37:29 2014
+SQL*Loader: Release 11.2.0.2.0 - Production on Wed Aug 6 18:34:02 2014
 
 Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
 
-Control File:   gen/tmp/archive_question_stageOP.ctl
-Data File:      gen/data/downloads/archive_question_stageOP.csv
-  Bad File:     gen/logs/archive_question_stageOP.bad
+Control File:   /home/shwetha/Documents/Data-Integration/DB/Oracle/gen/tmp/archive_question_stageOP.ctl
+Data File:      /home/shwetha/Documents/Data-Integration/DB/Oracle/gen/data/downloads/archive_question.dat
+  Bad File:     /home/shwetha/Documents/Data-Integration/DB/Oracle/gen/logs/archive_question_stageOP.bad
   Discard File:  none specified
  
  (Allow all discards)
@@ -29,57 +29,4 @@ SCORE                                NEXT     *   ,  O(") CHARACTER
 TRANSACTIONID                        NEXT     *   ,  O(") CHARACTER            
 QUESTIONINGSTYLETYPEFIELD            NEXT     *   ,  O(") CHARACTER            
 
-Record 1: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP, column STARTDATE.
-ORA-01858: a non-numeric character was found where a numeric was expected
-
-Record 300: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 301: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 302: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 1049: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 1052: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 1053: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 1299: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 1300: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 1638: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-Record 2033: Rejected - Error on table ARCHIVE_QUESTION_STAGEOP.
-ORA-00001: unique constraint (SYSTEM.ARCHIVE_QUESTION_STAGEOP_PK) violated
-
-
-Table ARCHIVE_QUESTION_STAGEOP:
-  2430 Rows successfully loaded.
-  11 Rows not loaded due to data errors.
-  0 Rows not loaded because all WHEN clauses were failed.
-  0 Rows not loaded because all fields were null.
-
-
-Space allocated for bind array:                  99072 bytes(64 rows)
-Read   buffer bytes: 1048576
-
-Total logical records skipped:          0
-Total logical records read:          2441
-Total logical records rejected:        11
-Total logical records discarded:        0
-
-Run began on Mon Jul 28 14:37:29 2014
-Run ended on Mon Jul 28 14:37:30 2014
-
-Elapsed time was:     00:00:00.96
-CPU time was:         00:00:00.07
+SQL*Loader-601: For INSERT option, table must be empty.  Error on table ARCHIVE_QUESTION_STAGEOP
