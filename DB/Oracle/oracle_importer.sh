@@ -41,7 +41,7 @@ then
 	shift
 	done
 	printf 'EXIT' >> $HPCC_ORA/gen/tmp/importscript.sql
-	$sqlcmd $user/$pass@$host/$service @$HPCC_ORA/gen/tmp/importscript.sql
+	LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib:$LD_LIBRARY_PATH $sqlcmd $user/$pass@$host/$service @$HPCC_ORA/gen/tmp/importscript.sql
 	
 	if [ $finalscp -eq 1 ]
 		then
