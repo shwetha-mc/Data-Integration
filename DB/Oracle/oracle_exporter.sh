@@ -18,13 +18,13 @@ then
 	host=$4
 	service=$5
 	tablename=$6
-	scp hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/$filename gen/data/downloads
+	scp hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads
 	#generate control file
-	sh ./gen/getcolumns.sh $tablename
-	$sqlcmd $user/$pwd@$host/$service @gen/tmp/exportscript.sql
-	sh ./gen/ctlgen.sh $filename $tablename
+	sh $HPCC_ORA/./gen/getcolumns.sh $tablename
+	$sqlcmd $user/$pwd@$host/$service @$HPCC_ORA/gen/tmp/exportscript.sql
+	sh $HPCC_ORA/./gen/ctlgen.sh $filename $tablename
 	#execute sqlldr command but not before setting ORACLE_HOME and ORACLE_BASE
-	$ORACLE_HOME/bin/./sqlldr $user/$pwd@$host/$service control=gen/tmp/$tablename.ctl log=gen/logs/$tablename.log bad=gen/logs/$tablename.bad
+	$ORACLE_HOME/bin/./sqlldr $user/$pwd@$host/$service control=$HPCC_ORA/gen/tmp/$tablename.ctl log=$HPCC_ORA/gen/logs/$tablename.log bad=$HPCC_ORA/gen/logs/$tablename.bad
 	
 else
 	echo "./oracle_exporter.sh filename username password hostname:port serviceid tablename"

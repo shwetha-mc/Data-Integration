@@ -19,14 +19,14 @@ then
 	if [ $5 == "nolocal" ]
 		then
 			finalscp=1
-			spoolpath="gen/data/uploads/"
+			spoolpath="$HPCC_ORA/gen/data/uploads/"
 		else
 			finalscp=0
 			spoolpath="/var/lib/HPCCSystems/mydropzone/"
 	fi
 	#setup the exportscript template:
-	rm gen/tmp/importscript.sql
-	cat gen/template >> gen/tmp/importscript.sql
+	rm $HPCC_ORA/gen/tmp/importscript.sql
+	cat $HPCC_ORA/gen/template >> $HPCC_ORA/gen/tmp/importscript.sql
 	
 	#parse the rest of the arguments as table/path
 	shift 5
@@ -37,15 +37,15 @@ then
 	exp="$1"
 	table=${exp%,*}
 	pat=${exp#*,}
-	sh ./gen/import_sqlgen.sh $spoolpath $table $pat 
+	sh $HPCC_ORA/./gen/import_sqlgen.sh $spoolpath $table $pat 
 	shift
 	done
-	printf 'EXIT' >> gen/tmp/importscript.sql
-	$sqlcmd $user/$pass@$host/$service @gen/tmp/importscript.sql
+	printf 'EXIT' >> $HPCC_ORA/gen/tmp/importscript.sql
+	$sqlcmd $user/$pass@$host/$service @$HPCC_ORA/gen/tmp/importscript.sql
 	
 	if [ $finalscp -eq 1 ]
 		then
-			scp -r gen/data/uploads/* hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/
+			scp -r $HPCC_ORA/gen/data/uploads/* hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/
 	fi
 else
 	echo "This script needs to be run with the following arguments"
