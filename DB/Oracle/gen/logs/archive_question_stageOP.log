@@ -1,10 +1,10 @@
 
-SQL*Loader: Release 11.2.0.2.0 - Production on Wed Aug 6 18:34:02 2014
+SQL*Loader: Release 11.2.0.2.0 - Production on Wed Aug 6 19:32:03 2014
 
 Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
 
 Control File:   /home/shwetha/Documents/Data-Integration/DB/Oracle/gen/tmp/archive_question_stageOP.ctl
-Data File:      /home/shwetha/Documents/Data-Integration/DB/Oracle/gen/data/downloads/archive_question.dat
+Data File:      /home/shwetha/Documents/Data-Integration/DB/Oracle/gen/data/downloads/archive_question_stageOP.csv
   Bad File:     /home/shwetha/Documents/Data-Integration/DB/Oracle/gen/logs/archive_question_stageOP.bad
   Discard File:  none specified
  
@@ -29,4 +29,24 @@ SCORE                                NEXT     *   ,  O(") CHARACTER
 TRANSACTIONID                        NEXT     *   ,  O(") CHARACTER            
 QUESTIONINGSTYLETYPEFIELD            NEXT     *   ,  O(") CHARACTER            
 
-SQL*Loader-601: For INSERT option, table must be empty.  Error on table ARCHIVE_QUESTION_STAGEOP
+
+Table ARCHIVE_QUESTION_STAGEOP:
+  2903 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                  99072 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:          2903
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Wed Aug 06 19:32:03 2014
+Run ended on Wed Aug 06 19:32:04 2014
+
+Elapsed time was:     00:00:01.01
+CPU time was:         00:00:00.04

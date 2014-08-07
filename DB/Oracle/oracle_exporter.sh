@@ -26,10 +26,10 @@ then
 	fi
 	if [ $loc == "nolocal" ]
 		then
-			scp hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads
+			scp hpccdemo@192.168.13.130:/var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads/
 			
 		else
-			cp /var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads
+			cp /var/lib/HPCCSystems/mydropzone/$filename $HPCC_ORA/gen/data/downloads/
 	fi
 	#generate control file
 	sh $HPCC_ORA/./gen/getcolumns.sh $tablename

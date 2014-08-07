@@ -1,0 +1,9 @@
+
+SQL*Loader: Release 11.2.0.2.0 - Production on Wed Aug 6 19:24:46 2014
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+SQL*Loader-350: Syntax error at line 5.
+Expecting field-name, found ")".
+ ()
+  ^
